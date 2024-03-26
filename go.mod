@@ -27,4 +27,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/project-alvarium/alvarium-sdk-go => github.com/michaelehab/alvarium-sdk-go v0.0.0-20240319183452-31b68d0617cb
+replace github.com/project-alvarium/alvarium-sdk-go => github.com/michaelehab/alvarium-sdk-go v0.0.0-20240326132047-e075d7f861df
