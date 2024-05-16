@@ -2,8 +2,16 @@ FROM golang:1.21
 
 ARG TAG
 
-COPY cmd/creator/creator-demo /creator-demo
+# Copy the binary
+COPY cmd/creator/creator-demo /app/creator-demo
 
+# Copy the configuration folder
+COPY cmd/creator/res /app/res
+
+# Set the environment variable
 ENV TAG=${TAG}
 
-ENTRYPOINT ["/creator-demo"]
+# Set the working directory to /app where both the executable and res folder are located
+WORKDIR /app
+
+ENTRYPOINT ["/app/creator-demo", "-cfg", "./res/config-mqtt.json"]
