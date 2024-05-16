@@ -1,0 +1,9 @@
+FROM golang:1.21
+
+ARG TAG
+
+COPY cmd/mutator/mutator-demo /mutator-demo
+
+ENV TAG=${TAG}
+
+ENTRYPOINT ["/mutator-demo"]

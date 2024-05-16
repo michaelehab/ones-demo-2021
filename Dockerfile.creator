@@ -1,0 +1,9 @@
+FROM golang:1.21
+
+ARG TAG
+
+COPY cmd/creator/creator-demo /creator-demo
+
+ENV TAG=${TAG}
+
+ENTRYPOINT ["/creator-demo"]

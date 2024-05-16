@@ -1,0 +1,9 @@
+FROM golang:1.21
+
+ARG TAG
+
+COPY cmd/transitor/transitor-demo /transitor-demo
+
+ENV TAG=${TAG}
+
+ENTRYPOINT ["/transitor-demo"]
