@@ -13,7 +13,7 @@ pipeline {
         stage('prep - generate source code checksum') {
             steps {
                 sh 'mkdir -p $JENKINS_HOME/jobs/$JOB_NAME/$BUILD_NUMBER/'
-                sh "find ${WORKSPACE} -type f -print0 | sort -z | xargs -0 md5sum | awk '{print $1 "  " $2}' | sort | md5sum | cut -d ' ' -f 1 > ${JENKINS_HOME}/jobs/${JOB_NAME}/${BUILD_NUMBER}/sc_checksum"
+                sh "find ${WORKSPACE} -type f -exec md5sum {} + | md5sum | cut -d ' ' -f 1 | tr 'a-z' 'A-Z' | tr -d '\n' > ${JENKINS_HOME}/jobs/${JOB_NAME}/${BUILD_NUMBER}/sc_checksum"
             }
         }
 
