@@ -14,11 +14,8 @@ pipeline {
             steps {
                 sh 'mkdir -p $JENKINS_HOME/jobs/$JOB_NAME/$BUILD_NUMBER/'
                 sh '''find . -type f -exec md5sum {} + |\
-                        md5sum |\
-                        cut -d" " -f1 |\
-                        tr 'a-z' 'A-Z' |\ 
-                        tr -d '\n' \
-                        > $JENKINS_HOME/jobs/$JOB_NAME/$BUILD_NUMBER/sc_checksum
+                        md5sum | cut -d ' ' -f 1 | tr 'a-z' 'A-Z' | tr -d '\n' \
+                            > $JENKINS_HOME/jobs/$JOB_NAME/$BUILD_NUMBER/sc_checksum
                 '''
             }
         }
