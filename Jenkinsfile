@@ -59,7 +59,7 @@ pipeline {
                     // Loop through each app and generate checksums
                     def appNames = ['creator', 'mutator', 'transitor']
                     appNames.each { appName ->
-                        def artifactPath = "cmd/${appName}/${appName}-demo"
+                        def artifactPath = "${WORKSPACE}/cmd/${appName}/${appName}-demo"
                         def checksumPath = "${JENKINS_HOME}/jobs/${JOB_NAME}/${BUILD_NUMBER}/${appName}-demo.checksum"
                         sh "md5sum ${artifactPath} | cut -d ' ' -f 1 | tr 'a-z' 'A-Z' | tr -d '\n' > ${checksumPath}"
                         
