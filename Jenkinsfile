@@ -1,4 +1,4 @@
-@Library('alvarium-pipelines@main') _
+@Library('alvarium-pipelines') _
 
 pipeline {
     agent any
