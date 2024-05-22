@@ -7,7 +7,6 @@ pipeline {
     }
     environment {
         GO121MODULE = 'on'
-        TAG = "${GIT_COMMIT}"
     }
     stages {
         stage('prep - generate source code checksum') {
